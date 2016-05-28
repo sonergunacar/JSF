@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:outputLabel value="Please choose what is right for you."/>
+            <p:growl id="msgs"/>
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Have you ever develope a program with Java?"/>
+                <p:selectBooleanCheckbox value="#{booleanCheckBoxBean.java}"/>
+                <p:outputLabel value="Have you ever develope a program with .NET?"/>
+                <p:selectBooleanCheckbox value="#{booleanCheckBoxBean.dotnet}">
+                    <p:ajax update="msgs" listener="#{booleanCheckBoxBean.sendMessage()}"/>
+                </p:selectBooleanCheckbox>
+            </h:panelGrid>
+            <p:commandButton value="SEND" icon="ui-icon-check" update="show" oncomplete="PF('dlg').show()"/>
+            <p:dialog header="Result" modal="true" resizable="false" showEffect="fade" widgetVar="dlg">
+                <p:panelGrid columns="1" id="show">
+                    <p:outputLabel value="#{booleanCheckBoxBean.dotnetMessage()}"/>
+                    <p:outputLabel value="#{booleanCheckBoxBean.javaMessage()}"/>
+                </p:panelGrid>
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>

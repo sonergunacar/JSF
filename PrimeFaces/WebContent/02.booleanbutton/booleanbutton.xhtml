@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Hello!</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:growl id="msgs" />
+
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			<h:outputText value="Do you use Windows OS?" />
+			<p:selectBooleanButton id="windows"
+				value="#{booleanButtonBean.windows}" onLabel="Yes" offLabel="No" />
+
+			<h:outputText value="Do you use Linux based OS?" />
+			<p:selectBooleanButton id="linux" value="#{booleanButtonBean.linux}"
+				onLabel="Yes" offLabel="No" onIcon="ui-icon-check"
+				offIcon="ui-icon-close">
+				<p:ajax update="msgs" listener="#{booleanButtonBean.addMessage}" />
+			</p:selectBooleanButton>
+		</h:panelGrid>
+
+		<p:commandButton id="submit" value="Send" update="ShowResults"
+			icon="ui-icon-check" oncomplete="PF('dlg').show()" />
+
+		<p:dialog id="Results" header="Results" modal="true" resizable="false"
+			showEffect="fade" widgetVar="dlg">
+			<h:panelGrid columns="1" id="ShowResults">
+				<h:outputText
+					value="Windows: #{booleanButtonBean.windowsDialogMessage()}" />
+				<h:outputText
+					value="Linux: #{booleanButtonBean.linuxDialogMessage()}" />
+			</h:panelGrid>
+		</p:dialog>
+	</h:form>
+</h:body>
+</html>

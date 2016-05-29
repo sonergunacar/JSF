@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Hello OneButton and OneRadio </title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:outputLabel value="Use OneButton" />
+		<h:panelGrid columns="2">
+			<p:outputLabel value="Which team do you support:"></p:outputLabel>
+			<p:selectOneButton value="#{oneButtonOneRadioBean.oneButton}">
+				<f:selectItem itemLabel="Real Madrid" itemValue="REA" />
+				<f:selectItem itemLabel="Juventus" itemValue="JUVE" />
+				<f:selectItem itemLabel="Manchestar United" itemValue="MANU" />
+			</p:selectOneButton>
+		</h:panelGrid>
+		<p:commandButton value="SAVE" update="display" icon="ui-icon-check" />
+		<br />
+		<p:outputLabel id="display"
+			value="Supported team: #{oneButtonOneRadioBean.oneButton}" />
+	</h:form>
+	<br />
+	<h:form>
+		<p:outputLabel value="Use OneRadio" />
+		<h:panelGrid columns="2">
+			<p:outputLabel value="Which team do you support:"></p:outputLabel>
+			<p:selectOneRadio value="#{oneButtonOneRadioBean.oneRadio}">
+				<f:selectItems value="#{oneButtonOneRadioBean.teams}" />
+			</p:selectOneRadio>
+		</h:panelGrid>
+		<p:commandButton update="team" value="SAVE"></p:commandButton>
+		<br />
+		<p:outputLabel id="team"
+			value="Supported team: #{oneButtonOneRadioBean.oneRadio}"></p:outputLabel>
+	</h:form>
+</h:body>
+</html>

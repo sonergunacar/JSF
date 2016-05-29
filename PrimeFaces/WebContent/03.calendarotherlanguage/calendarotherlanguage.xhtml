@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Hello</title>
+    <script type="text/javascript">
+        PrimeFaces.locales['tr'] = {
+            closeText: 'kapat',
+            prevText: 'geri',
+            nextText: 'ileri',
+            currentText: 'bugün',
+            monthNames: ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'],
+            monthNamesShort: ['Oca','Şub','Mar','Nis','May','Haz', 'Tem','Ağu','Eyl','Eki','Kas','Ara'],
+            dayNames: ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'],
+            dayNamesShort: ['Pz','Pt','Sa','Ça','Pe','Cu','Ct'],
+            dayNamesMin: ['Pz','Pt','Sa','Ça','Pe','Cu','Ct'],
+            weekHeader: 'Hf',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: '',
+            timeOnlyTitle: 'Zaman Seçiniz',
+            timeText: 'Zaman',
+            hourText: 'Saat',
+            minuteText: 'Dakika',
+            secondText: 'Saniye',
+            ampm: false,
+            month: 'Ay',
+            week: 'Hafta',
+            day: 'Gün',
+            allDayText : 'Tüm Gün'
+        };
+    </script>
+    <script type="text/javascript">
+        PrimeFaces.locales ['ar'] = {
+            closeText: 'إغلق',
+            prevText: 'إلى الخلف',
+            nextText: 'إلى الأمام',
+            currentText: 'بداية',
+            monthNames: ['ديسمبر', 'نوفمبر', 'أكتوبر', 'سبتمبر', 'أغسطس', 'يوليو', 'يونيو', 'مايو', 'ابريل', 'مارس', 'فبراير', 'يناير' ],
+            monthNamesShort: ['ديسمبر', 'نوفمبر', 'أكتوبر', 'سبتمبر', 'أغسطس', 'يوليو', 'يونيو', 'مايو', 'ابريل', 'مارس', 'فبراير', 'يناير' ],
+            dayNames: ['يوم الأحد‎', 'يوم الإثنين‎', 'يوم الثلاثاء‎', '‏يوم الأَرْبعاء‎', '‏يوم الخَمِيس‎', 'يوم الجُمْعَة‎‎', 'يوم السَّبْت'],
+            dayNamesShort: ['الأحد‎', 'الإثنين‎', 'الثلاثاء‎', 'الأَرْبعاء‎', 'الخَمِيس‎', 'الجُمْعَة‎‎', 'السَّبْت'],
+            dayNamesMin: ['الأحد‎', 'الإثنين‎', 'الثلاثاء‎', 'الأَرْبعاء‎', 'الخَمِيس‎', 'الجُمْعَة‎‎', 'السَّبْت'],
+            weekHeader: 'الأسبوع',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix:'' ,
+            timeOnlyTitle: 'الوقت فقط' ,
+            timeText: 'الوقت' ,
+            hourText: 'ساعة',
+            minuteText: 'دقيقة',
+            secondText: 'ثانية',
+            ampm: false,
+            month: 'الشهر',
+            week: 'الأسبوع',
+            day: 'اليوم',
+            allDayText: 'سا ئراليوم'
+        };
+    </script>
+    <script type="text/javascript">
+        PrimeFaces.locales ['ru'] = {
+            closeText: 'Закрыть',
+            prevText: 'Назад',
+            nextText: 'Вперёд',
+            monthNames: ['Январь', 'Февраль' , 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь','Октябрь','Ноябрь','Декабрь' ],
+            monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек' ],
+            dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Субота'],
+            dayNamesShort: ['Воск','Пон' , 'Вт' , 'Ср' , 'Четв' , 'Пят' , 'Суб'],
+            dayNamesMin: ['В', 'П', 'Вт', 'С ', 'Ч', 'П ', 'Сб'],
+            weekHeader: 'Неделя',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix:'',
+            timeOnlyTitle: 'Только время',
+            timeText: 'Время',
+            hourText: 'Час',
+            minuteText: 'Минута',
+            secondText: 'Секунда',
+            currentText: 'Сегодня',
+            ampm: false,
+            month: 'Месяц',
+            week: 'неделя',
+            day: 'День',
+            allDayText: 'Весь день'
+        };
+    </script>
+</h:head>
+   <h:body>
+       <h:form id="form">
+           <p:growl id="msgs" showDetail="true" />
+ 
+           <h:panelGrid columns="4" cellpadding="5">
+               <p:outputLabel value="Turkish Calendar"/>
+               <p:calendar locale="tr" mode="inline" value="#{calendarOtherBean.date1}"/>
+ 
+               <p:outputLabel value="Arabic Calendar"/>
+               <p:calendar locale="ar" mode="inline" value="#{calendarOtherBean.date2}">
+                   <p:ajax event="dateSelect" update="msgs" listener="#{calendarOtherBean.onDateSelect}"/>
+               </p:calendar>
+ 
+               <p:outputLabel value="Russian Calendar"/>
+               <p:calendar locale="ru" mode="inline" value="#{calendarOtherBean.date3}"/>
+           </h:panelGrid>
+ 
+           <p:commandButton value="Submit" update="msgs" actionListener="#{calendarOtherBean.click}" icon="ui-icon-check" />
+ 
+           <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+               <p:panelGrid id="display" columns="2" columnClasses="label,value">
+                   <h:outputText value="Turkish:" />
+                   <h:outputText value="#{calendarOtherBean.date1}">
+                       <f:convertDateTime pattern="MM/dd/yyyy" />
+                   </h:outputText>
+ 
+                   <h:outputText value="Arabic:" />
+                   <h:outputText value="#{calendarOtherBean.date2}">
+                       <f:convertDateTime pattern="MM/dd/yyyy" />
+                   </h:outputText>
+ 
+                   <h:outputText value="Russian:" />
+                   <h:outputText value="#{calendarOtherBean.date3}">
+                       <f:convertDateTime pattern="MM/dd/yyyy" />
+                   </h:outputText>
+               </p:panelGrid>
+           </p:dialog>
+       </h:form>
+   </h:body>
+</html>

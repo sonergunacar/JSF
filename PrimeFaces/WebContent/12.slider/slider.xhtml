@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Hello Slider</title>
+</h:head>
+<h:body>
+	<h:form>
+
+		<h:panelGrid columns="1">
+			<h:outputText value="With InputText"></h:outputText>
+			<p:inputText id="inputTextSlider"
+				value="#{sliderBean.inputTextSlider}" />
+			<p:slider for="inputTextSlider" />
+
+			<h:outputText id="inputHiddenSlider"
+				value="InputHidden using-Value: %#{sliderBean.inputHiddenSlider}" />
+			<h:inputHidden id="hiddenInputSlider"
+				value="#{sliderBean.inputHiddenSlider}" />
+			<p:slider for="hiddenInputSlider" display="inputHiddenSlider"
+				style="width: 200px" displayTemplate="Determined value: %{value}" />
+
+			<h:outputText value="Incremental slider" />
+			<p:inputText id="stepbystep" value="#{sliderBean.incrementalSlider}" />
+			<p:slider for="stepbystep" step="10" />
+
+			<h:outputText value="Vertical slider" />
+			<h:inputText id="verticalslider" value="#{sliderBean.verticalSlider}" />
+			<p:slider for="verticalslider" type="vertical" />
+
+			<h:outputText id="range"
+				value="Used for range :#{sliderBean.lowerRange}-#{sliderBean.topRange}" />
+			<h:inputHidden id="min" value="#{sliderBean.lowerRange}" />
+			<h:inputHidden id="max" value="#{sliderBean.topRange}" />
+			<p:slider for="min,max" display="range" range="true"
+				displayTemplate="Range{min}-{max}" />
+
+		</h:panelGrid>
+
+		<p:commandButton value="SAVE" icon="ui-icon-check" update="display"
+			oncomplete="PF('dlg').show()" />
+		<p:dialog header="Results" widgetVar="dlg" showEffect="shake"
+			hideEffect="shake" resizable="false">
+			<h:panelGrid id="display" columns="2">
+				<p:outputLabel value="InputText using" />
+				<p:outputLabel value="#{sliderBean.inputTextSlider}" />
+
+				<p:outputLabel value="InputHidden using" />
+				<p:outputLabel value="#{sliderBean.inputHiddenSlider}" />
+
+				<p:outputLabel value="Incremental using" />
+				<p:outputLabel value="#{sliderBean.incrementalSlider}" />
+
+				<p:outputLabel value="Vertical using" />
+				<p:outputLabel value="#{sliderBean.verticalSlider}" />
+
+				<p:outputLabel value="Range using" />
+				<p:outputLabel
+					value="#{sliderBean.lowerRange}-#{sliderBean.topRange}" />
+			</h:panelGrid>
+		</p:dialog>
+	</h:form>
+</h:body>
+</html>

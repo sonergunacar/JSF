@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Hello ManyMenu ManyCheckBox</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Choose which programming languages you know."/>
+            <p:selectManyMenu value="#{manyMenuManyCheckBoxBean.knownProgrammingLangs}" filter="true" filterMatchMode="contains" showCheckbox="true">
+                <f:selectItems value="#{manyMenuManyCheckBoxBean.programmingLangs}"/>
+            </p:selectManyMenu>
+            <p:outputLabel value="Choose which java technologies you know"/>
+            <p:selectManyCheckbox value="#{manyMenuManyCheckBoxBean.knownTechnologies}">
+                <f:selectItems value="#{manyMenuManyCheckBoxBean.technologies}"/>
+            </p:selectManyCheckbox>
+            </h:panelGrid>
+            
+            <p:commandButton value="SEND" update="display" icon="ui-icon-check" oncomplete="PF('dlg').show()"/>
+            
+            <p:dialog header="Chosed" widgetVar="dlg" showEffect="clip">
+                <p:outputPanel id="display">
+                    <p:dataList value="#{manyMenuManyCheckBoxBean.knownProgrammingLangs}" var="write">
+                        <p:outputLabel value="#{write}"/>
+                </p:dataList>
+                    <p:dataList value="#{manyMenuManyCheckBoxBean.knownTechnologies}" var="write2">
+                        <p:outputLabel value="#{write2}"/>
+                    </p:dataList>
+                </p:outputPanel>
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>

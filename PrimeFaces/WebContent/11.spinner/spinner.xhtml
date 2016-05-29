@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Hello Spinner</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:outputLabel
+			value="Get value from user." />
+		<h:panelGrid columns="2">
+
+			<h:outputText value="Simple Spinner" />
+			<p:spinner value="#{spinnerBean.simpleSpinner}" />
+
+			<h:outputText value="Step by step spinner" />
+			<p:spinner value="#{spinnerBean.stepSpinner}" stepFactor="0.50" />
+
+			<h:outputText value="Min max Spinner" />
+			<p:spinner value="#{spinnerBean.minmaxSpinner}" min="10" max="80" />
+
+			<h:outputText for="prefix" value="Prefix Spinner" />
+			<p:spinner id="prefix" value="#{spinnerBean.prefixSpinner}" prefix="$">
+			</p:spinner>
+
+
+			<h:outputText value="Ajax Spinner" />
+			<p:outputPanel>
+				<p:spinner value="#{spinnerBean.ajaxSpinner}">
+					<p:ajax update="ajaxspinner"></p:ajax>
+				</p:spinner>
+				<h:outputText id="ajaxspinner" value="#{spinner.ajaxSpinner}" />
+			</p:outputPanel>
+		</h:panelGrid>
+
+		<p:commandButton value="Save" update="choosedgrid"
+			oncomplete="PF('dlg').show()" />
+		<p:dialog header="Choosed values" widgetVar="dlg"
+			showEffect="shake" hideEffect="shake" resizable="false">
+			<p:panelGrid id="choosedgrid" columns="2">
+				<h:outputText value="Simple Spinner" />
+				<h:outputText value="#{spinnerBean.simpleSpinner}" />
+				<h:outputText value="StepSpinner" />
+				<h:outputText value="#{spinnerBean.stepSpinner}" />
+				<h:outputText value="Min max Spinner" />
+				<h:outputText value="#{spinnerBean.minmaxSpinner}" />
+				<h:outputText value="Prefix Spinner" />
+				<h:outputText value="#{spinnerBean.prefixSpinner}" />
+				<h:outputText value="Ajax Spinner" />
+				<h:outputText value="#{spinnerBean.ajaxSpinner}" />
+			</p:panelGrid>
+		</p:dialog>
+	</h:form>
+</h:body>
+</html>
